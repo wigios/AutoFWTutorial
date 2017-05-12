@@ -6,9 +6,9 @@
             <class name="com.github.pguzdziol.automation.tutorial.tests.FirstTests">
                 <methods>
                     <include name="testAddingItemToCard"/>
-                    <include name="testSignInSignOut"/>
-                </methods>
-            </class> <!-- com.github.pguzdziol.automation.tutorial.tests.FirstTests -->
+                    <!-- <include name="testSignInSignOut"/> -->
+         </methods>
+     </class> <!-- com.github.pguzdziol.automation.tutorial.tests.FirstTests -->
         </classes>
     </test> <!-- auto-fwk-tutorial -->
 </suite> <!-- Default Suite -->
