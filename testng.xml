@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Default Suite">
+    <test name="auto-fwk-tutorial">
+        <classes>
+            <class name="com.github.pguzdziol.automation.tutorial.tests.FirstTests">
+                <methods>
+                    <include name="testAddingItemToCard"/>
+                    <include name="testSignInSignOut"/>
+                </methods>
+            </class> <!-- com.github.pguzdziol.automation.tutorial.tests.FirstTests -->
+        </classes>
+    </test> <!-- auto-fwk-tutorial -->
+</suite> <!-- Default Suite -->
