@@ -16,6 +16,7 @@ public class NavigationMenu {
 	private static final By NAVIGATION_ITEM_YOUR_ACCOUNT = By.id("nav-link-yourAccount");
 	private static final By SIGN_IN_BUTTON = By.linkText("Sign in");
 	private static final By SIGN_OUT_BUTTON = By.linkText("Not Automat...? Sign Out");
+
 	private WebDriver driver;
 
 	public NavigationMenu(WebDriver driver) {
@@ -23,41 +24,31 @@ public class NavigationMenu {
 	}
 
 	public SearchResultsPage searchFor(String category, String searchKey) {
-		new Select(driver.findElement(SEARCH_DROPDOWN_BOX))
-				.selectByVisibleText(category);
-		driver.findElement(SEARCH_INPUT)
-				.sendKeys(searchKey);
-		driver.findElement(SEARCH_GO_BUTTON)
-				.click();
+		new Select(driver.findElement(SEARCH_DROPDOWN_BOX)).selectByVisibleText(category);
+		driver.findElement(SEARCH_INPUT).sendKeys(searchKey);
+		driver.findElement(SEARCH_GO_BUTTON).click();
 		return new SearchResultsPage(driver);
 	}
 
 	public CartPage navigateToCartPage() {
-		driver.findElement(NAVIGATION_ITEM_CART)
-				.click();
+		driver.findElement(NAVIGATION_ITEM_CART).click();
 		return new CartPage(driver);
 	}
 
 	public LoginPage navigateToLoginPage() {
-		driver.findElement(NAVIGATION_ITEM_YOUR_ACCOUNT)
-				.click();
-		driver.findElement(SIGN_IN_BUTTON)
-				.click();
+		driver.findElement(NAVIGATION_ITEM_YOUR_ACCOUNT).click();
+		driver.findElement(SIGN_IN_BUTTON).click();
 		return new LoginPage(driver);
 	}
 
 	public boolean isUserLogged(String name) {
-		return driver.findElement(NAVIGATION_ITEM_YOUR_ACCOUNT)
-				.getText()
-				.contains("Hello, " + name);
+		return driver.findElement(NAVIGATION_ITEM_YOUR_ACCOUNT).getText().contains("Hello, " + name);
 	}
 
 	public LoginPage signOut() {
 		Actions action = new Actions(driver);
-		action.moveToElement(driver.findElement(NAVIGATION_ITEM_YOUR_ACCOUNT))
-				.perform();
-		driver.findElement(SIGN_OUT_BUTTON)
-				.click();
+		action.moveToElement(driver.findElement(NAVIGATION_ITEM_YOUR_ACCOUNT)).perform();
+		driver.findElement(SIGN_OUT_BUTTON).click();
 		return new LoginPage(driver);
 	}
 }

@@ -13,13 +13,11 @@ public class ProductDetailsPage {
 	}
 
 	public String getProductTitle() {
-		return driver.findElement(PRODUCT_TITLE_FIELD)
-				.getText();
+		return driver.findElement(PRODUCT_TITLE_FIELD).getText();
 	}
 
 	public AddToCartConfirmPage addToCart() {
-		driver.findElement(ADD_TO_CART_BUTTON)
-				.click();
+		driver.findElement(ADD_TO_CART_BUTTON).click();
 		return new AddToCartConfirmPage(driver);
 	}
 }

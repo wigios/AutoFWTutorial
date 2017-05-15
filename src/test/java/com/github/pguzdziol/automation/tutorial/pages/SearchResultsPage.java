@@ -12,13 +12,11 @@ public class SearchResultsPage {
 	}
 
 	public String getFirstResultTitle() {
-		return driver.findElement(SEARCH_RESULT_ITEM_TITLE)
-				.getText();
+		return driver.findElement(SEARCH_RESULT_ITEM_TITLE).getText();
 	}
 
 	public ProductDetailsPage clickFirstResultTitle() {
-		driver.findElement(SEARCH_RESULT_ITEM_TITLE)
-				.click();
+		driver.findElement(SEARCH_RESULT_ITEM_TITLE).click();
 		return new ProductDetailsPage(driver);
 	}
 }
