@@ -15,12 +15,10 @@ public class LoginPage {
 	}
 
 	public HomePage loginAs(String username, String password) {
-		driver.findElement(EMAIL_INPUT)
-				.sendKeys(username);
+		driver.findElement(EMAIL_INPUT).sendKeys(username);
 		driver.findElement(PASSWORD_INPUT)
 				.sendKeys(password);
-		driver.findElement(SIGN_IN_BUTTON)
-				.click();
+		driver.findElement(SIGN_IN_BUTTON).click();
 		return new HomePage(driver);
 	}
 

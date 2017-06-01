@@ -23,10 +23,14 @@ public class NavigationMenu {
 		this.driver = driver;
 	}
 
-	public SearchResultsPage searchFor(String category, String searchKey) {
+	public SearchResultsPage searchFor(String category, String searchKey) throws InterruptedException {
 		new Select(driver.findElement(SEARCH_DROPDOWN_BOX)).selectByVisibleText(category);
-		driver.findElement(SEARCH_INPUT).sendKeys(searchKey);
+		Thread.sleep(2000);
+		driver.findElement(SEARCH_INPUT).click();
+		//driver.findElement(SEARCH_INPUT).sendKeys(searchKey);
+		Thread.sleep(2000);
 		driver.findElement(SEARCH_GO_BUTTON).click();
+		Thread.sleep(4000);
 		return new SearchResultsPage(driver);
 	}
 

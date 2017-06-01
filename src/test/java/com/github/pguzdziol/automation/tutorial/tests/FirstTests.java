@@ -3,6 +3,7 @@ package com.github.pguzdziol.automation.tutorial.tests;
 import com.github.pguzdziol.automation.tutorial.pages.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.firefox.internal.ProfilesIni;
@@ -20,7 +21,13 @@ public class FirstTests {
 
 	@BeforeClass(alwaysRun = true)
 	public void setUp() {
+		System.setProperty("webdriver.gecko.driver", "D:\\1_Documentos\\Selenium\\Drivers\\geckodriver.exe");
 		driver = new FirefoxDriver();
+//		System.setProperty("webdriver.chrome.driver", "D://1_Documentos//Selenium//Drivers//chromedriver.exe");
+//		ChromeOptions options = new ChromeOptions();
+//		options.addArguments("--start-maximized");
+//		options.addArguments("--disable-extensions");
+//		driver = new ChromeDriver(options);
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
 
@@ -36,7 +43,7 @@ public class FirstTests {
 	}
 
 	@Test
-	public void testAddingItemToCard() {
+	public void testAddingItemToCard() throws InterruptedException {
 
 		SearchResultsPage searchResultsPage = homePage.navigationMenu().searchFor("Books", "Selenium");
 		String itemTitle = searchResultsPage.getFirstResultTitle();
